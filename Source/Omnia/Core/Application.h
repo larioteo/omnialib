@@ -68,71 +68,71 @@ public:
     // Default
     static Application *pAppInstance;
     Application(const ApplicationProperties &properties = {});
-	virtual ~Application();
+    virtual ~Application();
     static Application &Get() { return *pAppInstance; }
 
-	// Accessors
+    // Accessors
     static ApplicationProperties &GetProperties() { return Get().mProperties; }
-	static Config &GetConfig() { return *Get().mConfig; }
-	static Context &GetContext() { return *Get().mContext; }
+    static Config &GetConfig() { return *Get().mConfig; }
+    static Context &GetContext() { return *Get().mContext; }
     static Dialog &GetDialog() { return *Get().mDialog; }
     static Statistics GetStatistics() { return Get().statistics; };
-	static Window &GetWindow() { return *Get().mWindow; }
+    static Window &GetWindow() { return *Get().mWindow; }
 
     // With this method, everything begins.
-	void Run();
+    void Run();
 
     // These methods offer an easy to use applicaiton workflow.
-	/// This method executes your initialization code.
-	virtual void Create();
+    /// This method executes your initialization code.
+    virtual void Create();
     /// This method executes your termination code.
-	virtual void Destroy();
+    virtual void Destroy();
     /// This method executes your main logic code.
-	virtual void Update(Timestamp deltaTime);
+    virtual void Update(Timestamp deltaTime);
 
     // Danger-Zone
     /// Attention: Call this method only if you want to reload/switch the graphics context.
     static void Reload();
 
     // With this method, everything ends.
-	void Exit();
+    void Exit();
 
     // These methods offer an easy to use layer system.
-	void PushLayer(Layer *layer);
-	void PushOverlay(Layer *overlay);
+    void PushLayer(Layer *layer);
+    void PushOverlay(Layer *overlay);
 
-	// These methods offer an easy to use event system.
-	/// This method delivers controller events.
-	virtual void ControllerEvent(ControllerEventData &data);
-    /// This method delivers keyboard events.
-	virtual void KeyboardEvent(KeyboardEventData &data);
-    /// This method delivers you mouse events.
-	virtual void MouseEvent(MouseEventData &data);
+    // These methods offer an easy to use event system.
     /// This method delivers controller events.
-	virtual void TouchEvent(TouchEventData &data);
+    virtual void ControllerEvent(ControllerEventData &data);
+    /// This method delivers keyboard events.
+    virtual void KeyboardEvent(KeyboardEventData &data);
+    /// This method delivers you mouse events.
+    virtual void MouseEvent(MouseEventData &data);
+    /// This method delivers controller events.
+    virtual void TouchEvent(TouchEventData &data);
     /// This method delivers you window events.
-	virtual void WindowEvent(WindowEventData &data);
+    virtual void WindowEvent(WindowEventData &data);
 
 private:
-	//These methods are used internally to handle critical events or pass them to the provided layers.
+    //These methods are used internally to handle critical events or pass them to the provided layers.
     /// This method dispatches device events.
-	void AutoDeviceEvent(DeviceEventData &data);
+    void AutoDeviceEvent(DeviceEventData &data);
     /// This method dispatches power events.
-	void AutoPowerEvent(PowerEventData &data);
+    void AutoPowerEvent(PowerEventData &data);
 
     /// This method dispatches controller events.
-	void AutoControllerEvent(ControllerEventData &data);
+    void AutoControllerEvent(ControllerEventData &data);
     /// This method dispatches keyboard events.
-	void AutoKeyboardEvent(KeyboardEventData &data);
+    void AutoKeyboardEvent(KeyboardEventData &data);
     /// This method dispatches mouse events.
-	void AutoMouseEvent(MouseEventData &data);
+    void AutoMouseEvent(MouseEventData &data);
     /// This method dispatches controller events.
-	void AutoTouchEvent(TouchEventData &data);
+    void AutoTouchEvent(TouchEventData &data);
     /// This method dispatches window events.
-	void AutoWindowEvent(WindowEventData &data);
+    void AutoWindowEvent(WindowEventData &data);
     
     /// This method dispatches context events.
-	void AutoContextEvent(ContextEventData &data);
+    void AutoContextEvent(ContextEventData &data);
 
 private:
     // Properties
