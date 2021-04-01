@@ -31,7 +31,7 @@ set(AppLibrarySystemLayer	true	CACHE BOOL "System Extensions like color output i
 set(AppLibraryUILayer		false	CACHE BOOL "UI extensions like window creation and event system" FORCE)
 set(AppLibraryUtilityLayer	true	CACHE BOOL "Usefull utilities like date and time, properties and timer helpers, etc." FORCE)
 #‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐
-if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 	set(AppLibraryDebugMode		true	CACHE BOOL "" FORCE)
 else()
 	set(AppLibraryDebugMode		false	CACHE BOOL "" FORCE)
